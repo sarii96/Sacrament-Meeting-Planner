@@ -7,5 +7,14 @@ namespace Sacrament_Meeting_Planner.Models
 {
     public class Speakers
     {
+        public int SpeakerId { get; set; }
+
+        public string MemberName { get; set; }
+
+        public string Topic { get; set; }
+
+        public int PlanId { get; set; }
+
+        public SacramentMeetingPlan SacramentMeetingPlan { get; set; }
     }
 }
