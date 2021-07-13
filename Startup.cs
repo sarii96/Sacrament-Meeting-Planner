@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Sacrament_Meeting_Planner.Data;
 
 namespace Sacrament_Meeting_Planner
 {
@@ -24,6 +26,9 @@ namespace Sacrament_Meeting_Planner
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<Sacrament_Meeting_PlannerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Sacrament_Meeting_PlannerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

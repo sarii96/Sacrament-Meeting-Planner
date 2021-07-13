@@ -8,7 +8,7 @@ namespace Sacrament_Meeting_Planner.Models
 {
     public class SacramentMeetingPlan
     {
-        public int PlanId { get; set; }
+        public int SacramentMeetingPlanId { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -25,15 +25,13 @@ namespace Sacrament_Meeting_Planner.Models
 
         [Display(Name = "Intermediate Number")]
         //It has to be optional. I add "?" but I am not sure
-        public string? IntermediateSong { get; set; } 
+        public string IntermediateSong { get; set; } 
 
         [Display(Name = "Closing song")]
         public string ClosingSong { get; set; }
 
 
         public string Benediction { get; set; }
-
-
 
     }
 }

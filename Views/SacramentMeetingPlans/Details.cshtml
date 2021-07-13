@@ -1,0 +1,66 @@
+﻿@model Sacrament_Meeting_Planner.Models.SacramentMeetingPlan
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SacramentMeetingPlan</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BishopricName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BishopricName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OpeningSong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OpeningSong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Invocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Invocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SacramentHymn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SacramentHymn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntermediateSong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntermediateSong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClosingSong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClosingSong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Benediction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Benediction)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SacramentMeetingPlanId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
