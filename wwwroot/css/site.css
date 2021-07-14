@@ -139,7 +139,13 @@ label {
 
 th {
     font-family: 'Montserrat', sans-serif;
-    font-weight:bold;
+    font-weight: bold;
+    background-color: #407ca4;
+    color: white;
+}
+
+td {
+    background-color: white;
 }
 
 .detailsContainer {
@@ -155,4 +161,11 @@ th {
 .bottom {
     position: absolute;
     bottom: 10em;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    width: 50vw;
 }
