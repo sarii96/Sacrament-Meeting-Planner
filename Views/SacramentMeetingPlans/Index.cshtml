@@ -4,18 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2>Sacrament Planner</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="tablesize">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.BishopricName)
             </th>
             <th>
@@ -35,7 +35,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Benediction)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -45,7 +45,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.BishopricName)
             </td>
             <td>
@@ -65,7 +65,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Benediction)
-            </td>
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.SacramentMeetingPlanId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.SacramentMeetingPlanId">Details</a> |

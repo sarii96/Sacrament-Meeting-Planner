@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Sacrament_Meeting_Planner.Data;
 using Sacrament_Meeting_Planner.Models;
+using System.Web;
+using System.Dynamic;
 
 namespace Sacrament_Meeting_Planner
 {
@@ -33,19 +35,33 @@ namespace Sacrament_Meeting_Planner
                 return NotFound();
             }
 
+            dynamic model = new ExpandoObject();
+
             var sacramentMeetingPlan = await _context.SacramentMeetingPlan
                 .FirstOrDefaultAsync(m => m.SacramentMeetingPlanId == id);
+
+            var speakersPlan = await _context.Speakers
+             .Where(m => m.SacramentMeetingPlanId == id).ToListAsync();
+
+            model.sacrament = sacramentMeetingPlan;
+            model.speakers = speakersPlan;
+
+
             if (sacramentMeetingPlan == null)
             {
                 return NotFound();
             }
 
-            return View(sacramentMeetingPlan);
+            return View(model);
         }
 
         // GET: SacramentMeetingPlans/Create
         public IActionResult Create()
         {
+            var response = _context.SacramentMeetingPlan.OrderByDescending(i => i.SacramentMeetingPlanId).FirstOrDefault();
+            int id = response.SacramentMeetingPlanId + 1;
+            TempData["id"] = id;
+
             return View();
         }
 
@@ -60,7 +76,11 @@ namespace Sacrament_Meeting_Planner
             {
                 _context.Add(sacramentMeetingPlan);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
+                TempData["id"] = sacramentMeetingPlan.SacramentMeetingPlanId;
+                
+                return RedirectToAction("Create", "Speakers");
+                //return RedirectToAction(nameof(Index));
             }
             return View(sacramentMeetingPlan);
         }
@@ -68,6 +88,8 @@ namespace Sacrament_Meeting_Planner
         // GET: SacramentMeetingPlans/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            TempData["id"] = id;
+
             if (id == null)
             {
                 return NotFound();

@@ -34,7 +34,6 @@ namespace Sacrament_Meeting_Planner.Models
         public string SacramentHymn { get; set; }
 
         [Display(Name = "Intermediate Number")]
-        //It has to be optional. I add "?" but I am not sure
         public string IntermediateSong { get; set; } 
 
         [Display(Name = "Closing song")]

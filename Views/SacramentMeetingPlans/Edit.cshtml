@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h2>Edit Sacrament Program</h2>
 
-<h4>Sacrament Meeting Plan</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -53,6 +52,8 @@
                 <input asp-for="Benediction" class="form-control" />
                 <span asp-validation-for="Benediction" class="text-danger"></span>
             </div>
+            <br />
+            <a href="/Speakers/Index" class="btn btn-secondary">Edit Speakers</a><br /><br /><br /><br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

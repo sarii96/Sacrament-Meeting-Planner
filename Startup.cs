@@ -25,6 +25,10 @@ namespace Sacrament_Meeting_Planner
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+            {
+
+            });
             services.AddControllersWithViews();
 
             services.AddDbContext<Sacrament_Meeting_PlannerContext>(options =>
@@ -46,6 +50,7 @@ namespace Sacrament_Meeting_Planner
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

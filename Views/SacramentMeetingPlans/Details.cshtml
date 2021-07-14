@@ -1,66 +1,78 @@
-﻿@model Sacrament_Meeting_Planner.Models.SacramentMeetingPlan
+﻿@model dynamic;
+
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h2>Sacrament Program Details </h2>
 
-<div>
-    <h4>Sacrament Meeting Plan</h4>
+<div class="detailsContainer">
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
+        <dt class="col-sm-2">
+            Date
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.Date
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BishopricName)
+        <dt class="col-sm-2">
+            Bishopric
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BishopricName)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.BishopricName
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningSong)
+        <dt class="col-sm-2">
+            Opening Song
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OpeningSong)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.OpeningSong
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Invocation)
+        <dt class="col-sm-2">
+            Invocation
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Invocation)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.Invocation
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SacramentHymn)
+        <dt class="col-sm-2">
+            Sacrament Hymn .
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SacramentHymn)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.SacramentHymn
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IntermediateSong)
+        <dt class="col-sm-2">
+            Intermediate Song 
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IntermediateSong)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.IntermediateSong
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingSong)
+
+        @foreach(Speakers s in Model.speakers)
+        {
+            <dt class="col-sm-2">
+                Speaker
+            </dt>
+            <dd class="col-sm-10" id="dElem">
+                @s.MemberName (@s.Topic)
+            </dd>
+        }
+
+
+        <dt class="col-sm-2">
+            Closing Song
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingSong)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.ClosingSong
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Benediction)
+        <dt class="col-sm-2">
+            Benediction
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Benediction)
+        <dd class="col-sm-10" id="dElem">
+            @Model.sacrament.Benediction
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.SacramentMeetingPlanId">Edit</a> |
+<div class="bottom">
+    <a asp-action="Edit" asp-route-id="@Model.sacrament.SacramentMeetingPlanId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

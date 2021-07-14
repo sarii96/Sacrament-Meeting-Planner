@@ -84,6 +84,29 @@ header{
     background-color: #3a7ca5;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+}
+
+.sacramentButton {
+    width: 8em;
+    min-height: 2em;
+    background-color: white;
+    border: 2px solid #1c64ac;
+}
+
+#createbtn {
+    position: relative;
+    left: 1em;
+}
+
+#tablesize {
+    width: 70vw;
+}
+
+
 nav a {
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -117,4 +140,19 @@ label {
 th {
     font-family: 'Montserrat', sans-serif;
     font-weight:bold;
+}
+
+.detailsContainer {
+    width: 50vw;
+    height: 10em;
+}
+
+#dElem {
+    position: relative;
+    left: 15em;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 10em;
 }

@@ -22,7 +22,10 @@ namespace Sacrament_Meeting_Planner
         // GET: Speakers
         public async Task<IActionResult> Index()
         {
-            var sacrament_Meeting_PlannerContext = _context.Speakers.Include(s => s.SacramentMeetingPlan);
+            int newId = (int)TempData["id"];
+            TempData.Keep("id");
+
+            var sacrament_Meeting_PlannerContext = _context.Speakers.Include(s => s.SacramentMeetingPlan).Where(i => i.SacramentMeetingPlanId == newId);
             return View(await sacrament_Meeting_PlannerContext.ToListAsync());
         }
 
@@ -61,6 +64,8 @@ namespace Sacrament_Meeting_Planner
         {
             if (ModelState.IsValid)
             {
+                int newId = (int)TempData["id"];
+                speakers.SacramentMeetingPlanId = newId;
                 _context.Add(speakers);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
