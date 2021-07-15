@@ -58,10 +58,6 @@ namespace Sacrament_Meeting_Planner
         // GET: SacramentMeetingPlans/Create
         public IActionResult Create()
         {
-            var response = _context.SacramentMeetingPlan.OrderByDescending(i => i.SacramentMeetingPlanId).FirstOrDefault();
-            int id = response.SacramentMeetingPlanId;
-            TempData["id"] = id;
-
             return View();
         }
 
